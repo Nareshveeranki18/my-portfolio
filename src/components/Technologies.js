@@ -13,7 +13,8 @@ const Technologies = () => {
                 </div>
                 <div className="box">
                     <strong>Tools & Platforms</strong>
-                    <span className="pill">Git</span>
+        
+                    <span className="pill"> Git</span>
                     <span className="pill">GitHub</span>
                     <span className="pill">VS Code</span>
                     <span className="pill">Postman</span>
