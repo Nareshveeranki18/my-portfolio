@@ -1,126 +1,92 @@
 import React from 'react';
+// Note: Ensure Bootstrap CSS and Bootstrap Icons are included in your overall project setup.
 
-// NOTE: Ensure your Bootstrap CSS and JavaScript are loaded for the Collapse component to work
-
-const EmployeeManagementProjectCondensed = () => {
-  // Define links and constants
-  const REPOSITORY_LINK = "https://github.com/Nareshveeranki18/My_Portfolio"; // Replace with your actual repository link
-  const CLIENT_NAME = "BridgeSoft"; 
-  
-  const TECH_STACK = [
-    { name: 'Java 8', color: 'danger' },
-    { name: 'Spring Boot', color: 'success' },
-    { name: 'ReactJS', color: 'info' },
-    { name: 'MySQL', color: 'primary' },
-  ];
+const ProjectDetails = () => {
+  // Constants derived from the screenshot content
+  const REPOSITORY_LINK = "https://github.com/Nareshveeranki18/My_Portfolio"; // Placeholder for your GitHub link
+  const TECH_STACK = "Java 8, Spring Boot, ReactJS, MySQL";
+  const CLIENT_NAME = "BridgeSoft";
 
   return (
-    <div className="container mt-5 mb-5">
-      <div className="card shadow-lg p-3" style={{ maxWidth: '850px', margin: 'auto' }}>
-        <div className="card-body">
+    <div className="container mt-5">
+      {/* Outer Project Title/Heading */}
+      <h2 className="mb-4" style={{ color: '#00cc66' }}>Project</h2>
 
-          {/* === 1. TOP SECTION (Always Visible) === */}
-          <div className="mb-4">
-            <h3 className="card-title text-success fw-bold">Employee Management System </h3>
-            
-            {/* Links and Client */}
-            <div className="d-flex flex-wrap align-items-center mb-3">
-              <span className="me-3 text-muted">Client: {CLIENT_NAME}</span>
+      {/* Main Card Container */}
+      {/* Styling mimics the dark background shown in the screenshot */}
+      <div className="card text-white p-4" style={{ backgroundColor: '#202334', border: 'none' }}>
+        <div className="card-body p-0">
+          
+          {/* Header/Title Block */}
+          <div className="mb-3">
+            <h4 className="card-title fw-bold" style={{ color: '#fff' }}>
+              Employee Management System <span className="text-muted">(Client: {CLIENT_NAME})</span>
+            </h4>
+            <p className="card-text mb-1" style={{ fontSize: '0.9rem', opacity: 0.8 }}>
+              Tech Stack: {TECH_STACK}
+            </p>
+            <div className="d-flex align-items-center">
+              <span className="me-3" style={{ fontSize: '0.9rem', opacity: 0.8 }}>Client: {CLIENT_NAME}</span>
               <a 
                 href={REPOSITORY_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="btn btn-sm btn-outline-dark"
+                className="btn btn-sm btn-outline-light" 
+                style={{ borderColor: '#00cc66', color: '#00cc66' }}
               >
                 <i className="bi bi-github me-1"></i> View Repository
               </a>
             </div>
-            
-            {/* Tech Stack Badges */}
-            <div className="d-flex flex-wrap mb-4">
-              <strong className="me-2 text-dark">Tech Stack:</strong>
-              {TECH_STACK.map((tech, index) => (
-                <span key={index} className={`badge bg-${tech.color} me-2 mb-1`}>
-                  {tech.name}
-                </span>
-              ))}
-            </div>
           </div>
           
-          <hr />
-
-          {/* === 2. CONDENSED PROJECT GOAL (4-5 Lines) === */}
-          <div className="mb-3">
-            <h5 className="text-secondary mb-2">Project Goal</h5>
+          {/* Goal/Overview Section */}
+          <div className="mb-4 pt-3 border-top" style={{ borderColor: '#444' }}>
             <p className="card-text">
               The goal of this project was to design and develop a flexible and user-friendly Employee Management system. 
               This software simplifies HR processes for small and medium-sized companies by enabling administrators to manage personnel records efficiently. 
-              Key features include the ability to edit employees, add new employees, transfer/promote/terminate employees, and manage employee details. 
-              <br/>
-              {/* This is the end of the condensed description */}
+              Key features include the ability to edit employees, add new employees, transfer/promote/terminate employees, and manage employee details.
             </p>
           </div>
+
+          {/* Key Responsibilities Section */}
+          <div>
+            <h5 className="fw-bold mb-3" style={{ color: '#fff' }}>Key Responsibilities:</h5>
+            <ul className="list-unstyled">
+              <li className="mb-2">
+                <i className="bi bi-dot me-2" style={{ color: '#00cc66' }}></i> 
+                Designed the view layer as per the requirements using React/ReactJS components.
+              </li>
+              <li className="mb-2">
+                <i className="bi bi-dot me-2" style={{ color: '#00cc66' }}></i> 
+                Implemented REST APIs using the Spring Boot framework.
+              </li>
+              <li className="mb-2">
+                <i className="bi bi-dot me-2" style={{ color: '#00cc66' }}></i> 
+                Wrote the Persistence layer using Spring Data JPA.
+              </li>
+              <li className="mb-2">
+                <i className="bi bi-dot me-2" style={{ color: '#00cc66' }}></i> 
+                Tested and validated REST APIs using the Postman tool.
+              </li>
+              <li className="mb-2">
+                <i className="bi bi-dot me-2" style={{ color: '#00cc66' }}></i> 
+                Analyzed requirements and assessed their impact on other parts of the application.
+              </li>
+              <li className="mb-2">
+                <i className="bi bi-dot me-2" style={{ color: '#00cc66' }}></i> 
+                Updated application configuration files (`application.properties` or `application.yml`) as required for configuration.
+              </li>
+              <li className="mb-2">
+                <i className="bi bi-dot me-2" style={{ color: '#00cc66' }}></i> 
+                Collaborated closely with the product owner to clarify requirements.
+              </li>
+            </ul>
+          </div>
           
-          {/* === 3. READ MORE BUTTON === */}
-          <button 
-            className="btn btn-primary btn-sm mb-4" 
-            type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#detailedResponsibilities" 
-            aria-expanded="false" 
-            aria-controls="detailedResponsibilities"
-          >
-            <i className="bi bi-caret-down-fill me-1"></i> Read More Details
-          </button>
-
-
-          {/* === 4. COLLAPSIBLE CONTENT (Hidden by default) === */}
-          <div className="collapse" id="detailedResponsibilities">
-            <div className="card card-body border-0 p-0">
-                <hr className="mt-0"/>
-                
-                {/* Key Responsibilities Section (Detailed) */}
-                <div className="mb-4">
-                    <h5 className="text-secondary mb-3">Key Responsibilities</h5>
-                    <ul className="list-group list-group-flush">
-                      <li className="list-group-item">
-                        <i className="bi bi-window me-2 text-primary"></i> 
-                        Designed the view layer as per the requirements using React/ReactJS components.
-                      </li>
-                      <li className="list-group-item">
-                        <i className="bi bi-server me-2 text-primary"></i> 
-                        Implemented REST APIs using the Spring Boot framework.
-                      </li>
-                      <li className="list-group-item">
-                        <i className="bi bi-database me-2 text-primary"></i> 
-                        Wrote the Persistence layer using Spring Data JPA.
-                      </li>
-                      <li className="list-group-item">
-                        <i className="bi bi-bug me-2 text-primary"></i> 
-                        Tested and validated REST APIs using the Postman tool.
-                      </li>
-                      <li className="list-group-item">
-                        <i className="bi bi-clipboard-check me-2 text-primary"></i> 
-                        Analyzed requirements and assessed their impact on other parts of the application.
-                      </li>
-                      <li className="list-group-item">
-                        <i className="bi bi-file-earmark-code me-2 text-primary"></i> 
-                        Updated application configuration files (`application.properties` or `application.yml`) as required for configuration.
-                      </li>
-                      <li className="list-group-item">
-                        <i className="bi bi-people me-2 text-primary"></i> 
-                        Collaborated closely with the product owner to clarify requirements.
-                      </li>
-                    </ul>
-                </div>
-            </div>
-          </div> 
-          {/* End of Collapsible Content */}
-
         </div>
       </div>
     </div>
   );
 };
 
-export default EmployeeManagementProjectCondensed;
+export default ProjectDetails;
